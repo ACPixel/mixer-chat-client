@@ -2,7 +2,7 @@
 
 This is a simple, bare-bones, and fast javascript chat client for Mixer.com.
 
-It works on both front-end ad back-end javascript/node projects.
+It works on both front-end and back-end javascript/node projects.
 
 It is currently in use powering every chat connection over at https://pixel.chat
 
