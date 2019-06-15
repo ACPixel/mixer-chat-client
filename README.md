@@ -56,8 +56,8 @@ Chat.connect();
 
 ## Methods:
 
-| Method  | args                 |
-| ------- | -------------------- |
-| connect |                      |
-| send    | type, method, args[] |
-| close   |                      |
+| Method  | Arguments            | Response |
+| ------- | -------------------- | -------- |
+| connect |                      |          |
+| send    | type, method, args[] | Promise  |
+| close   |                      |          |
