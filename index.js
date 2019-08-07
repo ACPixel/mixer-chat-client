@@ -42,8 +42,9 @@ module.exports = class chatSocket extends EventEmitter {
         this.emit("msg", evt);
       }
     } else if (data.event === "SkillAttribution") {
+      let evt = {};
       if (data.data.skill.currency === "Embers") {
-        let evt = {
+        evt = {
           userId: data.user_id,
           username: data.user_name,
           cost: data.data.skill.cost,
@@ -53,7 +54,7 @@ module.exports = class chatSocket extends EventEmitter {
           meta: typeof data.message === "undefined" ? null : data.message.meta
         };
       } else {
-        let evt = {
+        evt = {
           userId: data.data.user_id,
           username: data.data.user_name,
           cost: data.data.skill.cost,
