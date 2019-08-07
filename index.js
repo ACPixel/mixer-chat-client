@@ -41,6 +41,22 @@ module.exports = class chatSocket extends EventEmitter {
       } else {
         this.emit("msg", evt);
       }
+    } else if (data.event === "SkillAttribution") {
+      let evt = {
+        userId: data.data.user_id,
+        username: data.data.user_name,
+        cost: data.data.skill.cost,
+        currency: data.data.skill.currency,
+        message:
+          typeof data.data.message === "undefined"
+            ? []
+            : data.data.message.message,
+        meta:
+          typeof data.data.message === "undefined"
+            ? null
+            : data.data.message.meta
+      };
+      this.emit("skill", evt);
     } else if (data.event === "ClearMessages") {
       this.emit("clear");
     } else if (data.event === "PurgeMessage") {
