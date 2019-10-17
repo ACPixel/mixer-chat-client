@@ -51,7 +51,7 @@ Chat.connect();
 | purge        | {userId: 00}                                                                                       |
 | delete       | {chatId: ""}                                                                                       |
 | userJoin     | {username: "", roles: [], channel: 00, id: 00}                                                     |
-| userJLeav    | {username: "", roles: [], channel: 00, id: 00}                                                     |
+| userLeave    | {username: "", roles: [], channel: 00, id: 00}                                                     |
 | welcome      | {}                                                                                                 |
 
 ## Methods:
