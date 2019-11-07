@@ -81,6 +81,20 @@ module.exports = class chatSocket extends EventEmitter {
       evt.username = data.data.username;
       evt.channel = data.data.channel;
       this.emit("userLeave", evt);
+    } else if (data.event === "PollStart") {
+      let evt = {};
+      evt.username = data.data.author.user_name;
+      evt.userId = data.data.author.user_id;
+      evt.question = data.data.q;
+      evt.answers = data.data.responses;
+      this.emit("PollStart", evt);
+    } else if (data.event === "PollEnd") {
+      let evt = {};
+      evt.username = data.data.author.user_name;
+      evt.userId = data.data.author.user_id;
+      evt.question = data.data.q;
+      evt.answers = data.data.responses;
+      this.emit("PollEnd", evt);
     } else if (data.event === "WelcomeEvent") {
       this.emit("welcome");
     }
