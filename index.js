@@ -34,6 +34,7 @@ module.exports = class chatSocket extends EventEmitter {
       evt.roles = data.data.user_roles;
       evt.chatId = data.data.id;
       evt.userId = data.data.user_id;
+      evt.channel = data.data.channel;
       evt.meta = data.data.message.meta;
       evt.chatLevel = data.data.user_ascension_level;
       if (data.data.message.meta.whisper === true) {
