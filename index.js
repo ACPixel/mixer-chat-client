@@ -96,10 +96,12 @@ module.exports = class chatSocket extends EventEmitter {
       evt.question = data.data.q;
       evt.answers = data.data.responses;
       this.emit("PollEnd", evt);
-    } else if (data.event === "reply") {
-      this.emit("reply", data.data);
     } else if (data.event === "WelcomeEvent") {
       this.emit("welcome");
+    }
+
+    if (data.type === "reply") {
+      this.emit("reply", data.data);
     }
   }
 
