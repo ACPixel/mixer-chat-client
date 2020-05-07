@@ -55,7 +55,7 @@ module.exports = class chatSocket extends EventEmitter {
         meta:
           typeof data.data.message === "undefined"
             ? null
-            : data.data.message.meta
+            : data.data.message.meta,
       };
 
       this.emit("skill", evt);
@@ -96,6 +96,8 @@ module.exports = class chatSocket extends EventEmitter {
       evt.question = data.data.q;
       evt.answers = data.data.responses;
       this.emit("PollEnd", evt);
+    } else if (data.event === "reply") {
+      this.emit("reply", data.data);
     } else if (data.event === "WelcomeEvent") {
       this.emit("welcome");
     }
@@ -143,7 +145,7 @@ module.exports = class chatSocket extends EventEmitter {
         type,
         method,
         arguments: args,
-        id: this.id++
+        id: this.id++,
       };
       this.socket.send(JSON.stringify(toSend));
       resolve();
